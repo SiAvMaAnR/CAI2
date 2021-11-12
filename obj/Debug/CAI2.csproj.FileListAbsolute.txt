@@ -1,0 +1,16 @@
+D:\source\repos\CAI2\bin\Debug\CAI2.exe.config
+D:\source\repos\CAI2\bin\Debug\CAI2.exe
+D:\source\repos\CAI2\bin\Debug\CAI2.pdb
+D:\source\repos\CAI2\obj\Debug\CAI2.csproj.AssemblyReference.cache
+D:\source\repos\CAI2\obj\Debug\View\MainWindow.g.cs
+D:\source\repos\CAI2\obj\Debug\App.g.cs
+D:\source\repos\CAI2\obj\Debug\CAI2_MarkupCompile.cache
+D:\source\repos\CAI2\obj\Debug\CAI2_MarkupCompile.lref
+D:\source\repos\CAI2\obj\Debug\View\MainWindow.baml
+D:\source\repos\CAI2\obj\Debug\CAI2.g.resources
+D:\source\repos\CAI2\obj\Debug\CAI2.Properties.Resources.resources
+D:\source\repos\CAI2\obj\Debug\CAI2.csproj.GenerateResource.cache
+D:\source\repos\CAI2\obj\Debug\CAI2.csproj.CoreCompileInputs.cache
+D:\source\repos\CAI2\obj\Debug\CAI2.exe
+D:\source\repos\CAI2\obj\Debug\CAI2.pdb
+D:\source\repos\CAI2\obj\Debug\CAI2.csproj.SuggestedBindingRedirects.cache
