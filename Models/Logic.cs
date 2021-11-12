@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace CAI2.Models
 {
@@ -19,7 +16,7 @@ namespace CAI2.Models
 
             string localCode = code.TrimEnd();
 
-            List<(Regex,string)> Reserve = new List<(Regex, string)>()
+            List<(Regex, string)> Reserve = new List<(Regex, string)>()
             {
                 (new Regex(@"^int|^double|^float"),"Тип данных"),
                 (new Regex(@"^="),"Оператор присваивания"),
@@ -60,7 +57,6 @@ namespace CAI2.Models
                     Type = Reserve[number].Item2,
                     Position = (positionStart, positionEnd),
                 });
-
                 localCode = localCode.Substring(search.Value.Length);
                 positionStart = positionEnd + 1;
             }
