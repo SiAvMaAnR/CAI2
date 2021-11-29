@@ -13,7 +13,11 @@ namespace CAI2
         {
             InitializeComponent();
             DataContext = model;
-            model.Code = "double x = x12 * x12 - 28 * 48.33 / 24;";
+            model.Code = @"int a = 25;
+if(a>10)
+{
+    a = param24 + 234 % 25;
+}";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

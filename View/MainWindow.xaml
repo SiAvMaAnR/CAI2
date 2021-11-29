@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CAI2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="1000">
+        Title="MainWindow" Height="600" Width="900">
     <Window.Resources>
         <Style TargetType="DataGrid" x:Key="DataGrid">
             <Style.Setters>
@@ -15,62 +15,17 @@
             </Style.Setters>
         </Style>
 
-        <Style TargetType="Label" x:Key="IsCorrect">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding IsCorrect}" Value="0">
-                    <Setter Property="Background" Value="Transparent"/>
-                    <Setter Property="Foreground" Value="Transparent"/>
-                    <Setter Property="BorderThickness" Value="0"/>
-                </DataTrigger>
-                <DataTrigger Binding="{Binding IsCorrect}" Value="1">
-                    <Setter Property="Background" Value="#FF41D441"/>
-                    <Setter Property="Foreground" Value="Black"/>
-                    <Setter Property="BorderThickness" Value="1"/>
-                </DataTrigger>
-                <DataTrigger Binding="{Binding IsCorrect}" Value="2">
-                    <Setter Property="Background" Value="Red"/>
-                    <Setter Property="Foreground" Value="Black"/>
-                    <Setter Property="BorderThickness" Value="1"/>
-                </DataTrigger>
-            </Style.Triggers>
-            <Style.Setters>
-                <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="BorderBrush" Value="Black"/>
-                <Setter Property="Margin" Value="10,20,10,20"/>
-                <Setter Property="FontSize" Value="20"/>
-                <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                <Setter Property="VerticalContentAlignment" Value="Center"/>
-            </Style.Setters>
-            <Style.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="20"/>
-                </Style>
-            </Style.Resources>
-        </Style>
-
-        <Style TargetType="Label" x:Key="LabelStyle">
-            <Style.Setters>
-                <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                <Setter Property="FontSize" Value="18"/>
-            </Style.Setters>
-        </Style>
-
-        <Style TargetType="StackPanel" x:Key="StackPanelStyle">
-            <Style.Setters>
-                <Setter Property="VerticalAlignment" Value="Center"/>
-            </Style.Setters>
-        </Style>
-
         <Style TargetType="TextBox" x:Key="TextBoxStyle">
             <Style.Setters>
-                <Setter Property="FontSize" Value="22"/>
-                <Setter Property="TextAlignment" Value="Center"/>
-                <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="Margin" Value="30,0"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Padding" Value="5,5"/>
+                <Setter Property="AcceptsReturn" Value="True"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Margin" Value="10,7"/>
             </Style.Setters>
             <Style.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="7"/>
+                    <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </Style.Resources>
         </Style>
@@ -79,55 +34,39 @@
             <Style.Setters>
                 <Setter Property="BorderThickness" Value="1"/>
                 <Setter Property="BorderBrush" Value="Black"/>
-                <Setter Property="Margin" Value="10,20,10,20"/>
-                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Margin" Value="10,20"/>
+                <Setter Property="Padding" Value="10,15"/>
+                <Setter Property="FontFamily" Value="Arial"/>
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="VerticalAlignment" Value="Top"/>
                 <Setter Property="HorizontalContentAlignment" Value="Center"/>
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
             </Style.Setters>
             <Style.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="20"/>
+                    <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </Style.Resources>
         </Style>
     </Window.Resources>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="45*"/>
-            <ColumnDefinition Width="55*"/>
-        </Grid.ColumnDefinitions>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*" MaxHeight="180px" />
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
 
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="20*"/>
-                <RowDefinition Height="60*"/>
-                <RowDefinition Height="20*"/>
-            </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row="0">
-                <StackPanel Style="{StaticResource StackPanelStyle}">
-                    <Label Style="{StaticResource LabelStyle}">
-                        Введите строку кода
-                    </Label>
-                    <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Code}"></TextBox>
-                </StackPanel>
+            <Grid Grid.Column="0" >
+                <TextBox  Style="{StaticResource TextBoxStyle}" Text="{Binding Code}"></TextBox>
             </Grid>
 
-            <Grid Grid.Row="1">
-
-            </Grid>
-
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Grid Grid.Column="0">
-                    <Label Style="{StaticResource IsCorrect}" Content="{Binding IsCorrect}"/>
-                </Grid>
-
+            <Grid Grid.Column="1" >
                 <Grid Grid.Column="1">
                     <Button Style="{StaticResource ButtonStyle}" Click="Button_Click">
                         Start
@@ -136,23 +75,17 @@
             </Grid>
         </Grid>
 
-        <Grid Grid.Column="1">
+        <Grid Grid.Row="1">
             <DataGrid  Style="{StaticResource DataGrid}" ItemsSource="{Binding Lexemes}" AutoGenerateColumns="False">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
-                        <Setter Property="Padding" Value="5 0"></Setter>
+                        <Setter Property="Padding" Value="5 2"></Setter>
+                        <Setter Property="Background" Value="#FFD9D9D9"/>
                     </Style>
                 </DataGrid.ColumnHeaderStyle>
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Width="50*" Header="Тип" Binding="{Binding Path=Type}">
-                        <DataGridTextColumn.CellStyle>
-                            <Style>
-                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
-                            </Style>
-                        </DataGridTextColumn.CellStyle>
-                    </DataGridTextColumn>
                     <DataGridTextColumn Width="25*" Header="Лексема" Binding="{Binding Path=Name}">
                         <DataGridTextColumn.CellStyle>
                             <Style>
@@ -160,6 +93,7 @@
                             </Style>
                         </DataGridTextColumn.CellStyle>
                     </DataGridTextColumn>
+
                     <DataGridTextColumn Width="25*" Header="Позиция" Binding="{Binding Path=Position}">
                         <DataGridTextColumn.CellStyle>
                             <Style>
@@ -167,6 +101,16 @@
                             </Style>
                         </DataGridTextColumn.CellStyle>
                     </DataGridTextColumn>
+
+                    <DataGridTextColumn Width="50*" Header="Тип" Binding="{Binding Path=Type}">
+                        <DataGridTextColumn.CellStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.CellStyle>
+                    </DataGridTextColumn>
+
+
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
