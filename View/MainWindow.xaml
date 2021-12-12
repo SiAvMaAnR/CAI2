@@ -43,7 +43,7 @@
             </Style.Setters>
             <Style.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="20"/>
+                    <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </Style.Resources>
         </Style>
@@ -86,7 +86,7 @@
             </Style.Setters>
             <Style.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="20"/>
+                    <Setter Property="CornerRadius" Value="8"/>
                 </Style>
             </Style.Resources>
         </Style>
@@ -109,7 +109,7 @@
                     <Label Style="{StaticResource LabelStyle}">
                         Введите строку кода
                     </Label>
-                    <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Code}" Height="341" ></TextBox>
+                    <TextBox TextAlignment="Left" Style="{StaticResource TextBoxStyle}" Text="{Binding Code}" Height="341" ></TextBox>
                 </StackPanel>
             </Grid>
 
